@@ -1,0 +1,22 @@
+.resume {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+.created {
+  color: var(--blue);
+}
+
+.completed {
+  color: var(--purple);
+  display: flex;
+}
+
+.badge {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  margin-left: 0.625rem;
+}
