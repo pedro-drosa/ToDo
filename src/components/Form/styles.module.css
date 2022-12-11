@@ -1,0 +1,5 @@
+.formWrapper {
+  margin-top: -45px;
+  display: flex;
+  gap: 0.5rem;
+}
