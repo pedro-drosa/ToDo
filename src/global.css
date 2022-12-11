@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --purple: #8284fa;
   --purple-dark: #5e60ce;
@@ -23,6 +24,11 @@
   --text-sm: 0.75rem; /* 12px */
   --text-base: 0.875rem; /* 14px */
   --text-lg: 1rem; /* 16px */
+}
+
+:focus {
+  outline: 1px solid var(--purple-dark);
+  outline-offset: 1px;
 }
 
 * body {
