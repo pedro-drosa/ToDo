@@ -10,11 +10,16 @@ import styles from './styles.module.css';
 
 function App() {
   const [tasks, setTasks] = useState<ITask[]>(tasksMock);
+
+  function createNewTask(task: ITask) {
+    setTasks([...tasks, task]);
+  }
+
   return (
     <>
       <Header />
       <div className={styles.wrapper}>
-        <Form />
+        <Form onCreateTask={createNewTask} />
         <ResumeTasks tasks={tasks} />
         <TodoList tasks={tasks} />
       </div>
