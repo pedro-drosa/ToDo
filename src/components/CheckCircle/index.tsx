@@ -1,13 +1,9 @@
-interface CheckCircleProps extends React.SVGProps<SVGSVGElement> {
-  size?: number;
-  finished?: boolean;
+interface ICheckCircleProps extends React.SVGProps<SVGSVGElement> {
+  size: number;
+  finished: boolean;
 }
 
-export function CheckCircle({
-  size,
-  finished = false,
-  ...props
-}: CheckCircleProps) {
+export function CheckCircle({ size, finished, ...props }: ICheckCircleProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
