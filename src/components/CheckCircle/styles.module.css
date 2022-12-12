@@ -1,0 +1,7 @@
+.active:hover {
+  fill: #8284fa;
+}
+
+.inative:hover {
+  fill: rgba(12, 28, 37, 0.4);
+}

@@ -1,3 +1,5 @@
+import styles from './styles.module.css';
+
 interface ICheckCircleProps extends React.SVGProps<SVGSVGElement> {
   size: number;
   finished: boolean;
@@ -15,7 +17,13 @@ export function CheckCircle({ size, finished, ...props }: ICheckCircleProps) {
       <path fill="none" d="M0 0H256V256H0z" />
       {finished
         ? [
-            <circle fill="#5e60ce" cx={128} cy={128} r={96} />,
+            <circle
+              fill="#5e60ce"
+              cx={128}
+              cy={128}
+              r={96}
+              className={styles.active}
+            />,
             <path
               fill="none"
               stroke="#f2f2f2"
@@ -54,6 +62,7 @@ export function CheckCircle({ size, finished, ...props }: ICheckCircleProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={16}
+              className={styles.inative}
             />,
           ]}
     </svg>

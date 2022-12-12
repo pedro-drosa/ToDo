@@ -21,11 +21,7 @@ export function Task({ task, onDeleteTask, onFinishTask }: ITaskProps) {
 
   return (
     <li className={styles.taskWrapper}>
-      <button
-        type="button"
-        className={styles.finishTask}
-        onClick={handleFinishTask}
-      >
+      <button type="button" onClick={handleFinishTask}>
         <CheckCircle size={24} finished={task.finished} />
       </button>
       <span className={task.finished ? styles.finished : ''}>
