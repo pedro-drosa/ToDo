@@ -40,7 +40,7 @@ Você precisa ter as seguintes ferramentas instaladas em sua máquina:
 
 ```bash
 # Clonar este repositório
-$ git clone https://github.com/pedro-drosa/Ignite-aulas-react.git
+$ git clone https://github.com/pedro-drosa/ToDo.git
 
 # Navegue até o repositório
 $ cd toDo/
