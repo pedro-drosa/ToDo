@@ -1,13 +1,19 @@
 import { Task } from '../Task';
+import { ITask } from '../../interfaces/ITask';
 
 import styles from './styles.module.css';
 
-export function TodoList() {
+interface ITodoListProps {
+  tasks: ITask[];
+  onDeleteTask: (taskIDToDelete: string) => void;
+}
+
+export function TodoList({ tasks, onDeleteTask }: ITodoListProps) {
   return (
     <ul className={styles.todoWrapper}>
-      <Task />
-      <Task />
-      <Task />
+      {tasks.map((task) => (
+        <Task key={task.id} task={task} onDeleteTask={onDeleteTask} />
+      ))}
     </ul>
   );
 }

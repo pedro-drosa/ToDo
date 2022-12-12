@@ -15,13 +15,18 @@ function App() {
     setTasks([...tasks, task]);
   }
 
+  function deleteTask(taskIDToDelete: string) {
+    const updatedTasks = tasks.filter((task) => task.id !== taskIDToDelete);
+    setTasks(updatedTasks);
+  }
+
   return (
     <>
       <Header />
       <div className={styles.wrapper}>
         <Form onCreateTask={createNewTask} />
         <ResumeTasks tasks={tasks} />
-        <TodoList tasks={tasks} />
+        <TodoList tasks={tasks} onDeleteTask={deleteTask} />
       </div>
     </>
   );
