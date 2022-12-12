@@ -4,12 +4,13 @@ import { Header } from './components/Header';
 import { Form } from './components/Form';
 import { ResumeTasks } from './components/ResumeTasks';
 import { TodoList } from './components/TodoList/TodoList';
-import tasksMock from './mocks/tasks';
+import { TodoEmpty } from './components/TodoEmpty';
 
 import styles from './styles.module.css';
 
 function App() {
-  const [tasks, setTasks] = useState<ITask[]>(tasksMock);
+  const [tasks, setTasks] = useState<ITask[]>([]);
+  const tasksIsEmpty = tasks.length === 0;
 
   function createNewTask(task: ITask) {
     setTasks([...tasks, task]);
@@ -34,11 +35,15 @@ function App() {
       <div className={styles.wrapper}>
         <Form onCreateTask={createNewTask} />
         <ResumeTasks tasks={tasks} />
-        <TodoList
-          tasks={tasks}
-          onDeleteTask={deleteTask}
-          onFinishTask={finishTask}
-        />
+        {tasksIsEmpty ? (
+          <TodoEmpty />
+        ) : (
+          <TodoList
+            tasks={tasks}
+            onDeleteTask={deleteTask}
+            onFinishTask={finishTask}
+          />
+        )}
       </div>
     </>
   );

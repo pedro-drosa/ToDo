@@ -29,6 +29,7 @@
 :focus {
   outline: 1px solid var(--purple-dark);
   outline-offset: 1px;
+  border-radius: 0.25rem;
 }
 
 * body {
