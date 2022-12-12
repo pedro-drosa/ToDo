@@ -20,13 +20,25 @@ function App() {
     setTasks(updatedTasks);
   }
 
+  function finishTask(taskIDToFinish: string) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskIDToFinish) task.finished = !task.finished;
+      return task;
+    });
+    setTasks(updatedTasks);
+  }
+
   return (
     <>
       <Header />
       <div className={styles.wrapper}>
         <Form onCreateTask={createNewTask} />
         <ResumeTasks tasks={tasks} />
-        <TodoList tasks={tasks} onDeleteTask={deleteTask} />
+        <TodoList
+          tasks={tasks}
+          onDeleteTask={deleteTask}
+          onFinishTask={finishTask}
+        />
       </div>
     </>
   );
