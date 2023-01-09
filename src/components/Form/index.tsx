@@ -1,17 +1,14 @@
+import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { ITask } from '../../interfaces/ITask';
 import { CreateButton } from '../CreateButton';
 import { InputText } from '../InputText';
-
+import { TaskContext } from '../../contexts/TaskContext';
 import styles from './styles.module.css';
 
-interface IFormProps {
-  onCreateTask: (task: ITask) => void;
-}
-
-export function Form({ onCreateTask }: IFormProps) {
+export function Form() {
+  const { createNewTask } = useContext(TaskContext);
   const [newTask, setNewTask] = useState('');
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
@@ -21,7 +18,7 @@ export function Form({ onCreateTask }: IFormProps) {
   function handleCreateTask(event: FormEvent) {
     event.preventDefault();
     const task = { id: uuidv4(), content: newTask, finished: false };
-    onCreateTask(task);
+    createNewTask(task);
     setNewTask('');
   }
 

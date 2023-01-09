@@ -1,8 +1,11 @@
+import { useContext } from 'react';
+import { TaskContext } from '../../contexts/TaskContext';
 import ClipboardIcon from '../../assets/clipboard.svg';
 import styles from './styles.module.css';
 
 export function TodoEmpty() {
-  return (
+  const { tasksIsEmpty } = useContext(TaskContext);
+  return tasksIsEmpty ? (
     <main className={styles.todoEmptyWrapper}>
       <img src={ClipboardIcon} alt="clipboard" />
       <p>
@@ -12,5 +15,5 @@ export function TodoEmpty() {
         Crie tarefas e organize seus itens a fazer
       </p>
     </main>
-  );
+  ) : null;
 }
